@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import { ContextProvider } from "./context/ContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,9 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}
-      <Toaster position="top-right"
-  reverseOrder={true} />
+      <body className={inter.className}>
+        <ContextProvider>
+        <>
+        {children}
+        <Toaster position="top-right" reverseOrder={true} />
+        </>
+        </ContextProvider>
       </body>
     </html>
   );
