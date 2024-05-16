@@ -54,7 +54,7 @@ const AddInput: React.FC = () => {
           type="text"
           value={todo || ""}
           onChange={onChangeTodo}
-          className="border-2 font-semibold w-full  focus:placeholder:text-black border-gray-300 text-gray-900 text-lg bg-white  focus:border-black focus:ring-0 block  p-4 "
+          className="dark:bg-gray-900 dark:placeholder:text-gray-100 dark:border-gray-500 dark:text-gray-50 border-2 font-semibold w-full  focus:placeholder:text-black border-gray-300 text-gray-900 text-lg bg-white  focus:border-black focus:ring-0 block  p-4 "
           placeholder="Enter Your Task"
           onKeyUp={(e) => {
             if (e.key === "Enter") {
@@ -65,7 +65,7 @@ const AddInput: React.FC = () => {
         {/* </div> */}
         <button
           onClick={onAddTodo}
-          className="p-4 bg-slate-500 text-white font-semibold"
+          className="p-4 bg-slate-500 text-white font-semibold dark:bg-gray-700 dark:text-gray-200"
         >
           Submit
         </button>

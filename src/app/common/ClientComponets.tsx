@@ -19,7 +19,7 @@ interface regData {
 export const LoginForm = () => {
   const router = useRouter();
   const inputClasses =
-    "border-2  w-full  focus:placeholder:text-black border-gray-300 text-gray-900  bg-white  focus:border-black focus:ring-0 block  p-3 ";
+  "dark:bg-gray-900 dark:placeholder:text-gray-100 dark:border-gray-500 dark:text-gray-50 border-2  w-full  focus:placeholder:text-black border-gray-300 text-gray-900  bg-white  focus:border-black focus:ring-0 block  p-3 ";
   const [loginData, setLoginData] = useState<loginData>({
     email: "",
     password: "",
@@ -63,9 +63,9 @@ export const LoginForm = () => {
     }
   };
   return (
-    <div className="border min-h-screen flex justify-center items-center">
-      <div className=" shadow rounded border w-1/3 flex flex-col">
-        <div className=" p-4 border-b font-semibold text-xl">
+    <div className="min-h-screen flex justify-center items-center">
+      <div className=" shadow rounded border dark:border-black  w-1/3 flex flex-col">
+        <div className=" p-4 border-b dark:text-gray-200  dark:border-black font-semibold text-xl">
           Login and access application
         </div>
         <div className="form flex flex-col gap-6 p-4">
@@ -103,7 +103,7 @@ export const LoginForm = () => {
           </div>
           <button
             onClick={handelLogin}
-            className="bg-gray-600 p-3 text-white font-semibold hover:bg-black transition-all"
+            className="bg-gray-600 p-3 text-white font-semibold hover:bg-black transition-all dark:bg-gray-700 dark:text-gray-100"
           >
             Login
           </button>
@@ -111,14 +111,14 @@ export const LoginForm = () => {
           <div className="w-full">
             <div className="inline-flex items-center justify-center w-full">
               <hr className="w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700" />
-              <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900 font-semibold">
+              <div className="absolute px-4 dark:bg-gray-700 dark:text-gray-100 -translate-x-1/2 bg-white left-1/2  font-semibold">
                 OR
               </div>
             </div>
             <AuthProvidersUi />
           </div>
         </div>
-        <div className=" p-4 border-t text-center">
+        <div className=" p-4 border-t text-center dark:border-t-black dark:text-gray-200">
           Don't have an account ?{" "}
           <Link
             href={"/registration"}
@@ -135,7 +135,7 @@ export const LoginForm = () => {
 export const RegiForm = () => {
   const router = useRouter();
   const inputClasses =
-    "border-2  w-full  focus:placeholder:text-black border-gray-300 text-gray-900  bg-white  focus:border-black focus:ring-0 block  p-3 ";
+    "dark:bg-gray-900 dark:placeholder:text-gray-100 dark:border-gray-500 dark:text-gray-50  border-2  w-full  focus:placeholder:text-black border-gray-300 text-gray-900  bg-white  focus:border-black focus:ring-0 block  p-3 ";
   const [regData, setRegData] = useState<regData>({
     name: "",
     email: "",
@@ -178,9 +178,9 @@ export const RegiForm = () => {
     }
   };
   return (
-    <div className="border min-h-screen flex justify-center items-center">
-      <div className=" shadow rounded border w-1/3 flex flex-col">
-        <div className=" p-4 border-b font-semibold text-xl">
+    <div className="border min-h-screen flex justify-center items-center ">
+      <div className=" shadow rounded border dark:border-black w-1/3 flex flex-col">
+        <div className=" p-4 border-b font-semibold text-xl dark:text-gray-200  dark:border-black">
           Create a new account
         </div>
         <div className="form flex flex-col gap-6 p-4">
@@ -242,18 +242,18 @@ export const RegiForm = () => {
           <div className="w-full">
             <div className="inline-flex items-center justify-center w-full">
               <hr className="w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700" />
-              <div className="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900 font-semibold">
+              <div className="absolute px-4 dark:bg-gray-700 dark:text-gray-100  -translate-x-1/2 bg-white left-1/2  font-semibold">
                 OR
               </div>
             </div>
             <AuthProvidersUi />
           </div>
         </div>
-        <div className=" p-4 border-t text-center">
+        <div className=" p-4 border-t text-center dark:border-t-black dark:text-gray-200">
           Already have an account ?{" "}
           <Link
             href={"/login"}
-            className="border-b cursor-pointer font-semibold"
+            className="border-b cursor-pointer font-semibold "
           >
             Login
           </Link>

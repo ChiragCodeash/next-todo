@@ -47,14 +47,14 @@ const SingalCard: React.FC<SingalCardProps> = ({ data }) => {
   return (
     <>
       <div
-        className={`flex justify-between items-center align-middle p-3 cursor-pointer transition-all border-2 hover:border-black ${
+        className={`dark:bg-gray-900 dark:text-gray-100 dark:hover:border-white  flex justify-between items-center align-middle p-3 cursor-pointer transition-all border-2 hover:border-black ${
           data.isDone ? "border-green-500 bg-green-50" : "border-red-600 bg-red-50"
         }`}
       >
         <h3 className="w-80">{data.todo}</h3>
         <div className="flex gap-2">
           <button
-            className="bg-gray-300 text-black text-sm p-2 transition-all  hover:scale-90 disabled:cursor-not-allowed disabled:opacity-60"
+            className="bg-gray-300  dark:bg-gray-700 dark:text-gray-100 text-black text-sm p-2 transition-all  hover:scale-90 disabled:cursor-not-allowed disabled:opacity-60"
             title="Mark as done"
             disabled={data.isDone}
             onClick={() => {
@@ -64,13 +64,17 @@ const SingalCard: React.FC<SingalCardProps> = ({ data }) => {
             <IconCircleCheck />
           </button>
           <button
-            className="bg-red-300 text-black text-sm p-2 transition-all  hover:scale-90"
+            className="bg-red-300 dark:bg-red-900 dark:text-gray-100 text-black text-sm p-2 transition-all  hover:scale-90"
             title="Delete"
             onClick={() => {
               handelDelete(data._id);
             }}
           >
             <IconTrash />
+          </button>
+
+          <button>
+            {/* <IconMoonStars/> */}
           </button>
         </div>
       </div>

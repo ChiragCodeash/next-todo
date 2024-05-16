@@ -10,7 +10,7 @@ const AuthProvidersUi = () => {
           onClick={() => {
             HandleGithubLogin();
           }}
-          className="bg-gray-100 p-3 w-full text-black font-semibold hover:bg-gray-400 transition-all"
+          className="bg-gray-100 p-3 w-full text-black font-semibold hover:bg-gray-400 transition-all dark:bg-gray-900 dark:text-gray-100"
         >
           Continue With Github
         </button>
