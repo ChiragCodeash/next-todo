@@ -27,13 +27,16 @@
 // };
 
 // export default TodoList;
-import React from "react";
+import { cookies } from "next/headers";
 import SingalCard from "./SingalCard";
 
-const fetchTodo = async () => {
+const fetchTodo = async (token : any) => {
   try {
     let response = await fetch("http://localhost:3000/api/tasks", {
       cache: "no-store",
+      headers: {
+        authorization : token,
+      },
     });
     response = await response.json();
 
@@ -44,19 +47,20 @@ const fetchTodo = async () => {
 };
 
 const TodoList = async () => {
-  const Todos : any = await fetchTodo();
+  const token = cookies().get("authjs.session-token")?.value;
+  const Todos: any = await fetchTodo(token);
   return (
     <>
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-2  mt-5 gap-2">
           {Todos &&
-            Todos.map((item:any, i:any) => {
+            Todos.map((item: any, i: any) => {
               return <SingalCard data={item} key={i} />;
             })}
         </div>
         {(!Todos || !Todos.length) && (
           <h1 className="text-center font-semibold text-lg text-gray-500">
-            NO DATA
+            NO TASKS
           </h1>
         )}
       </div>

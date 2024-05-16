@@ -1,23 +1,26 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
-import toast from "react-hot-toast";
-// import { addTodo } from "../util/function";
+import React, { useState } from "react";
+// import  from "react-hot-toast";
 import { useRouter } from "next/navigation";
-// import { Context } from "../context/ContextProvider";
+import toast from "react-hot-toast";
+import { metadata } from "../layout";
 
 type todo = number | string | null;
 
 const AddInput: React.FC = () => {
+  
   const [todo, setTodo] = useState<todo>();
   const router = useRouter();
   // const { name } = useContext(Context);
-  
+
   // useEffect(()=>{
   //   console.log(name)
   // },[])
 
   const onAddTodo = async (): Promise<any> => {
+    
     if (todo) {
+      const toastId = toast.loading("Adding...!");
       // addTodo(todo);
       let response: any = await fetch(
         "http://localhost:3000/api/tasks/addtodo",
@@ -31,7 +34,9 @@ const AddInput: React.FC = () => {
       if (response.status) {
         setTodo(null);
         router.refresh();
-        toast.success(response.message);
+        toast.success(response.message, {
+          id: toastId,
+        });
       }
     } else {
       toast.error("Todo is required");

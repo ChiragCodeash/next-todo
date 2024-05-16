@@ -1,11 +1,20 @@
 import { Todo } from "@/app/util/Model/todo";
+import { User } from "@/app/util/Model/user";
 import dbConnect from "@/app/util/db";
 import { NextApiRequest } from "next";
+import { decode } from "next-auth/jwt";
+import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextApiRequest  ) {
   await dbConnect();
-  const data: any = await Todo.find();
+  const authorization = headers().get("authorization")
+// console.log(authorization)
+  const userData =  await decode({token : authorization! , salt: "authjs.session-token" , secret: process.env.AUTH_SECRET!})
+  const {_id} = await User.findOne({email : userData?.email})
+
+
+  const data: any = await Todo.find({user_id : _id});
   return NextResponse.json(data);
 }
 
